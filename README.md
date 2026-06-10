@@ -8,6 +8,18 @@
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
 
 ---
+<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 45%;">
+    <img src="dash-1.png" alt="MySQL Operations Dashboard - View 1" style="width: 100%; border-radius: 8px;">
+    <p align="center"><strong>Main Dashboard</strong></p>
+  </div>
+  <div style="flex: 1; min-width: 45%;">
+    <img src="dash-2.png" alt="MySQL Operations Dashboard - View 2" style="width: 100%; border-radius: 8px;">
+    <p align="center"><strong>Another View</strong></p>
+  </div>
+</div>
+
+
 
 ## 📌 Overview
 
