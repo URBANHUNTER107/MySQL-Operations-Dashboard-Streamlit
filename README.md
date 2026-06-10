@@ -18,6 +18,11 @@
   </div>
 </div>
 
+<p align="center">
+  <img src="dash-1.png" alt="Main Dashboard" width="48%" style="border-radius: 8px;">
+  <img src="dash-2.png" alt="Another View" width="48%" style="border-radius: 8px; margin-left: 15px;">
+</p>
+
 
 
 ## 📌 Overview
