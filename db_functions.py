@@ -124,3 +124,96 @@ def get_operational_data(cursor):
         result[label] = cursor.fetchall()
 
     return result
+
+
+def add_new_manual_id(cursor, db, p_name, p_category, p_price, p_stock, p_reorder, p_supplier):
+    proc_call = "call AddNewProductManualID(%s, %s, %s, %s, %s, %s)"
+    params = (p_name, p_category, p_price, p_stock, p_reorder, p_supplier)
+    cursor.execute(proc_call, params)
+    db.commit()
+
+
+def get_categories(cursor):
+    cursor.execute(
+        "SELECT DISTINCT category FROM products ORDER BY category ASC"
+    )
+
+    rows = cursor.fetchall()
+
+    return [row["category"] for row in rows]
+
+
+
+def get_suppliers(cursor):
+    cursor.execute(
+        "SELECT supplier_id, supplier_name "
+        "FROM suppliers "
+        "ORDER BY supplier_name ASC"
+    )
+
+    return cursor.fetchall()
+
+
+def get_all_products(cursor):
+    cursor.execute(
+        "select product_id, product_name from products order by product_name"
+    )
+    return cursor.fetchall()
+
+
+def get_product_history(cursor, product_id):
+    query = """
+    select *
+    from product_inventory_history
+    where product_id = %s
+    order by record_date desc
+    """
+
+    cursor.execute(query, (product_id,))
+    return cursor.fetchall()
+
+
+def place_reorder(cursor, db, product_id, reorder_quantity):
+    query = """
+    INSERT INTO reorders
+    (reorder_id, product_id, reorder_quantity, reorder_date, status)
+    SELECT
+        MAX(reorder_id)+1,
+        %s,
+        %s,
+        CURDATE(),
+        'Ordered'
+    FROM reorders
+    """
+
+    cursor.execute(query, (product_id, reorder_quantity))
+    db.commit()
+
+
+def get_pending_reorders(cursor):
+
+    query = """
+    SELECT
+        r.reorder_id,
+        p.product_name,
+        r.reorder_quantity,
+        r.reorder_date
+    FROM reorders r
+    JOIN products p
+        ON r.product_id = p.product_id
+    WHERE r.status = 'Ordered'
+    """
+
+    cursor.execute(query)
+
+    return cursor.fetchall()
+
+
+def mark_reorder_as_received(cursor, db, reorder_id):
+
+    cursor.callproc(
+        "MarkReorderAsReceived",
+        [reorder_id]
+    )
+
+    db.commit()
