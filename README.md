@@ -9,137 +9,119 @@
 
 ---
 
+<p align="center">
+  <img src="dash-1.png" alt="Operational Dashboard" width="47%">
+  <img src="dash-2.png" alt="Analytics Dashboard" width="47%">
+</p>
+
+---
+
 ## 📌 Overview
 
-This project simulates a **real-world business operations system** where managers, team leads, and non-technical staff can interact with a MySQL database through a clean, intuitive web interface.
+This project simulates a real-world inventory and supply chain management system where users can interact with a MySQL database through a clean and intuitive web interface.
 
-It combines **advanced SQL concepts** (stored procedures, views, functions, triggers) with a **Python Streamlit frontend** — demonstrating full-stack thinking and enterprise-level database design.
-
----
-
-## 🚀 Features
-
-- 📊 **View & Filter Data** — Browse tables and database views (product lists, order history, inventory levels)
-- ⚙️ **Run Stored Procedures** — Execute business operations like *"Mark order as received"* or *"Update stock"* with a single button click
-- ➕ **Add / Update Records** — Insert new products, prices, or orders via forms — no SQL needed
-- 🧮 **Business Calculations** — Use database functions to check restocking needs, calculate totals, and more
-- 📈 **Live Results** — All changes reflect instantly on screen
+The application combines database engineering concepts such as **Views, Stored Procedures, Functions, Joins, and Relational Design** with a **Python Streamlit frontend**, making complex database operations accessible through simple UI interactions.
 
 ---
 
-## 🏗️ Project Structure
+## ✨ Features
 
-```
-MySQL-Operations-Dashboard-Streamlit/
-│
-├── app.py                  # Main Streamlit application
-├── db_connection.py        # MySQL connection handler
-├── requirements.txt        # Python dependencies
-│
-├── sql/
-│   ├── schema.sql          # Database tables & relationships
-│   ├── views.sql           # SQL Views for reports
-│   ├── procedures.sql      # Stored Procedures
-│   └── functions.sql       # SQL Functions
-│
-└── README.md
-```
+### 📊 Dashboard & Analytics
+- View inventory metrics and operational KPIs
+- Monitor suppliers, products, shipments, and stock entries
+- Display business information through an interactive dashboard
+
+### 🗃️ Database Operations
+- Add new products and pricing information
+- Record stock entries and inventory updates
+- Create reorder requests through the UI
+- Execute database operations without writing SQL
+
+### ⚙️ Advanced SQL Integration
+- Utilize MySQL Views for reporting and historical analysis
+- Execute Stored Procedures directly from Streamlit
+- Implement SQL Functions for business calculations
+- Demonstrate practical relational database workflows
+
+### 🔄 Real-Time Updates
+- Instantly reflect database changes in the UI
+- Perform CRUD operations through interactive forms
+- Maintain synchronization between frontend and backend systems
 
 ---
 
-## 🗃️ Database Design
+## 🏗️ Database Design
 
-The MySQL database is structured to reflect a real business backend:
+The database is designed around a simplified inventory and supply chain workflow.
 
-| Object | Purpose |
-|---|---|
-| **Tables** | Products, Orders, Shipments, Inventory |
-| **Views** | Product history, Sales summaries, Stock reports |
-| **Stored Procedures** | Receive orders, Update inventory, Process shipments |
-| **Functions** | Check restock thresholds, Calculate totals |
+| Database Object | Purpose |
+|----------------|----------|
+| 📦 Products | Product catalog and pricing |
+| 🚚 Shipments | Incoming shipment records |
+| 📥 Stock Entries | Inventory additions and updates |
+| 🔄 Reorders | Reorder tracking and management |
+| 🏢 Suppliers | Supplier information and contacts |
+| 👁️ Views | Reporting and inventory history |
+| ⚙️ Stored Procedures | Business workflow automation |
+| 🧮 Functions | Business calculations |
+
+### Entity Relationships
+
+- One supplier can supply multiple products.
+- One product can have multiple stock entries.
+- One product can appear in multiple shipments.
+- One product can generate multiple reorder requests.
+- Inventory reports are generated using SQL Views that combine operational data across tables.
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Frontend | Python, Streamlit |
-| Backend | MySQL, MySQL Workbench |
-| Connector | mysql-connector-python |
-| Language | Python 3.10+ |
-
----
-
-## ⚙️ Setup & Installation
-
-### Prerequisites
-- Python 3.10+
-- MySQL Server + MySQL Workbench
-- pip
-
-### Steps
-
-**1. Clone the repository**
-```bash
-git clone https://github.com/your-username/MySQL-Operations-Dashboard-Streamlit.git
-cd MySQL-Operations-Dashboard-Streamlit
-```
-
-**2. Install dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-**3. Set up the database**
-
-Open MySQL Workbench and run the SQL files in order:
-```
-sql/schema.sql
-sql/views.sql
-sql/procedures.sql
-sql/functions.sql
-```
-
-**4. Configure connection**
-
-In `db_connection.py`, update your credentials:
-```python
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="your_password",
-    database="operations_db"
-)
-```
-
-**5. Run the app**
-```bash
-streamlit run app.py
-```
+|---------|------------|
+| 🎨 Frontend | Streamlit |
+| 🐍 Language | Python |
+| 🗄️ Database | MySQL |
+| 🔌 Connector | mysql-connector-python |
+| 🧰 Development Tools | MySQL Workbench, VS Code |
 
 ---
 
 ## 📚 Skills Demonstrated
 
-- ✅ Advanced SQL — Stored Procedures, Views, Functions
-- ✅ MySQL database design and normalization
-- ✅ Python + MySQL integration using `mysql-connector-python`
-- ✅ Real-time web UI development with Streamlit
-- ✅ End-to-end full-stack application architecture
-- ✅ Simulating real-world business operations systems
+- ✅ Relational Database Design
+- ✅ SQL Query Development
+- ✅ MySQL Views
+- ✅ Stored Procedures
+- ✅ SQL Functions
+- ✅ CRUD Operations
+- ✅ Python–MySQL Integration
+- ✅ Streamlit Development
+- ✅ Database Reporting
+- ✅ Business Process Automation
 
 ---
 
-## 🙋‍♂️ Mohd Farhan Abbas 
-      - Currently Interning as Developer Relations (DevRel) @ Y Combinator (YC)
-      - Passionate about building real-world applications that bridge the gap
-      between complex backend systems and simple, usable interfaces.
-      - This project reflects my interest in database engineering, Python
-      development, and creating tools that non-technical users can actually use.
+## 🎯 Project Highlights
 
-- GitHub: [@mohdabbasfarhan](https://github.com/URBANHUNTER107)
-- LinkedIn: [Mohd Farhan Abbas](www.linkedin.com/in/mohd-farhan-abbas-704a2b2a8)
+- Built a complete inventory management dashboard using Python and MySQL.
+- Designed and implemented a relational database schema for operational workflows.
+- Integrated advanced SQL objects into a user-facing application.
+- Developed interactive forms for managing products, stock, pricing, and reorder operations.
+- Demonstrated practical database engineering concepts through a real business scenario.
 
 ---
 
+## 👨‍💻 Author
+
+### Mohd Farhan Abbas
+
+**Developer Relations Intern @ ProjectX (YC P26)**
+
+Passionate about building practical software that combines data, databases, and user-friendly interfaces.
+
+🔗 **GitHub:** https://github.com/URBANHUNTER107
+
+🔗 **LinkedIn:** https://www.linkedin.com/in/mohd-farhan-abbas-704a2b2a8
+
+---
